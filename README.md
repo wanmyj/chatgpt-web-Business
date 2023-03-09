@@ -1,4 +1,41 @@
 # ChatGPT Web
+## Fork开发建议
+### Quick guide for commit:
+This repo use `Conventional Commits`, which is structured as follows ([instruction](https://www.conventionalcommits.org/en/v1.0.0/#summary)): 
+```
+<type>[optional scope]: <description>
+[optional body]
+[optional footer(s)]
+```
+Allowed types : fix:, feat:, chore:, ci:, docs:, style:, refactor:, perf:, test: and so on.
+
+Example:   
+`git ci -m "docs: subjects" -m "body"`
+
+### Merge forked features into this repo
+[原始repo](https://github.com/Chanzhaoyu/chatgpt-web)的新feature会不定时地merge到本repo的main分支，
+可以通过以下步骤将本地repo与原始repo保持同步：
+
+1. 在本地克隆完成后，添加原始 repo 作为 upstream remote:    
+`git remote add upstream https://github.com/Chanzhaoyu/chatgpt-web.git`
+2. 确认当前分支在主分支上: `git checkout main`
+3. 从 upstream 拉取更新: `git pull upstream main`
+4. 将更新 push 到 forked repo: `git push origin main`
+
+### Skip the change of service/.env
+```
+git update-index --skip-worktree  service/.env
+```
+
+### Port change
+开发版本的网络端口号为`31906`. 涉及到文件包括
+```
+Dockerfile
+docker-compose/docker-compose.yml
+docker-compose/nginx/nginx.conf
+service/src/index.ts
+```
+
 
 <div style="font-size: 1.5rem;">
   <a href="./README.md">中文</a> |
