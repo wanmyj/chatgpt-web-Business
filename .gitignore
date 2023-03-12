@@ -31,3 +31,8 @@ coverage
 # Environment variables files
 /service/.env
 /.env
+
+#java .class文件
+/chatGpt-service/.mvn/wrapper/maven-wrapper.jar
+/chatGpt-service/src/main/**/target/*
+/chatGpt-service/src/test/**/target/*
